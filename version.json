@@ -1,7 +1,7 @@
 {
-  "versionCode": 13,
+  "versionCode": 14,
   "versionName": "2.10",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Faster photo viewing (previews), map buttons, faces select/unassign, in-app auto-update",
-  "date": "2026-07-05T19:41:53+02:00"
+  "notes": "Admin: review user requests in the app; faster photo previews",
+  "date": "2026-07-06T05:42:40+02:00"
 }
