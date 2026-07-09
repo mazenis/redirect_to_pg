@@ -1,7 +1,7 @@
 {
-  "versionCode": 17,
-  "versionName": "2.10",
+  "versionCode": 19,
+  "versionName": "2.11",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: send CSRF token on login — fixes 401/wrong-password error",
-  "date": "2026-07-09T19:57:40+02:00"
+  "notes": "Bug fixes and improvements",
+  "date": "2026-07-09T20:20:32+02:00"
 }
