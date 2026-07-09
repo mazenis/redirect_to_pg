@@ -1,7 +1,7 @@
 {
-  "versionCode": 16,
+  "versionCode": 17,
   "versionName": "2.10",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "ui: dark mode toggle, infinite scroll, skeleton shimmer",
-  "date": "2026-07-09T08:23:37+02:00"
+  "notes": "fix: send CSRF token on login — fixes 401/wrong-password error",
+  "date": "2026-07-09T19:57:40+02:00"
 }
