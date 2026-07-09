@@ -1,7 +1,7 @@
 {
-  "versionCode": 14,
+  "versionCode": 16,
   "versionName": "2.10",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Admin: review user requests in the app; faster photo previews",
-  "date": "2026-07-06T05:42:40+02:00"
+  "notes": "ui: dark mode toggle, infinite scroll, skeleton shimmer",
+  "date": "2026-07-09T08:23:37+02:00"
 }
