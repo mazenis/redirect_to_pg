@@ -1,7 +1,7 @@
 {
-  "versionCode": 22,
+  "versionCode": 23,
   "versionName": "2.12",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Video tag button, scan videos for faces button, adaptive face scan interval for short videos",
-  "date": "2026-07-10T10:14:53+02:00"
+  "notes": "Album search filter on Android and web",
+  "date": "2026-07-10T10:25:42+02:00"
 }
