@@ -7,6 +7,7 @@ so a `git pull` here is enough to stay current (this repo is tiny, pull is fast)
 import os
 import subprocess
 import time
+import urllib.request
 from pathlib import Path
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
@@ -56,8 +57,83 @@ def env_from_path(path):
     return 'dev' if first == 'dev' else 'prod'
 
 
+def check_reachable(url, timeout=4):
+    """Return True if the tunnel URL answers with any HTTP status (not a network error)."""
+    if not url:
+        return False
+    try:
+        req = urllib.request.Request(url, method='HEAD')
+        urllib.request.urlopen(req, timeout=timeout)
+        return True
+    except urllib.error.HTTPError:
+        return True  # a 4xx/5xx still means the tunnel + app are reachable
+    except Exception:
+        return False
+
+
+def build_panel():
+    """Control panel showing BOTH environments: live URL, reachability, open link."""
+    rows = []
+    for env, label, route in (('prod', 'Production', '/prod'), ('dev', 'Development', '/dev')):
+        url = get_tunnel_url(env)
+        up = check_reachable(url)
+        badge = ('#16a34a', 'ONLINE') if up else (('#dc2626', 'OFFLINE') if url else ('#9ca3af', 'NO URL'))
+        url_html = (f'<a href="{url}">{url}</a>' if url else '<i>not published yet</i>')
+        rows.append(f'''
+        <div class="card">
+          <div class="head">
+            <span class="env {env}">{label}</span>
+            <span class="badge" style="background:{badge[0]}">{badge[1]}</span>
+          </div>
+          <div class="url">{url_html}</div>
+          <div class="actions">
+            <a class="btn primary" href="{route}">Open {label} →</a>
+            <a class="btn" href="{route}" onclick="navigator.clipboard&&navigator.clipboard.writeText('{url or ''}');return false;">Copy URL</a>
+          </div>
+          <div class="file">{URL_FILES[env].name}</div>
+        </div>''')
+    return f'''<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Photo Gallery — Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="30">
+<style>
+  body{{font-family:system-ui,sans-serif;background:#f6f7f9;color:#1f2937;margin:0;padding:24px}}
+  h1{{font-size:20px;margin:0 0 4px}} .sub{{color:#6b7280;font-size:13px;margin-bottom:20px}}
+  .grid{{display:grid;gap:16px;max-width:520px}}
+  .card{{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}}
+  .head{{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}}
+  .env{{font-weight:700;font-size:15px}} .env.dev{{color:#b45309}} .env.prod{{color:#065f46}}
+  .badge{{color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.03em}}
+  .url{{font-size:13px;word-break:break-all;margin-bottom:12px}} .url a{{color:#0969da}}
+  .actions{{display:flex;gap:8px}}
+  .btn{{flex:1;text-align:center;text-decoration:none;padding:8px 10px;border-radius:8px;font-size:13px;
+        border:1px solid #d1d5db;color:#374151;background:#fff}}
+  .btn.primary{{background:#0969da;border-color:#0969da;color:#fff;font-weight:600}}
+  .file{{color:#9ca3af;font-size:11px;margin-top:8px;font-family:monospace}}
+</style></head>
+<body>
+  <h1>⚡ Photo Gallery — Control</h1>
+  <div class="sub">Both environments · auto-refreshes every 30s</div>
+  <div class="grid">{''.join(rows)}</div>
+</body></html>'''
+
+
 class RedirectHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        path = self.path.split('?', 1)[0].strip('/').lower()
+
+        # Control panel: shows BOTH envs (does not redirect).
+        if path in ('panel', 'control'):
+            body = build_panel().encode()
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        # Otherwise: redirect to the requested env's tunnel.
         env = env_from_path(self.path)
         url = get_tunnel_url(env)
 
@@ -68,7 +144,8 @@ class RedirectHandler(BaseHTTPRequestHandler):
             self.wfile.write(f'<html><body style="font-family:sans-serif;padding:20px">'
                              f'<h1>Service Unavailable</h1>'
                              f'<p>No URL published yet for <b>{env}</b> '
-                             f'({URL_FILES[env].name}).</p>'
+                             f'({URL_FILES[env].name}). '
+                             f'<a href="/panel">Open control panel</a></p>'
                              f'</body></html>'.encode())
             return
 
@@ -84,6 +161,7 @@ class RedirectHandler(BaseHTTPRequestHandler):
 if __name__ == '__main__':
     server = HTTPServer(('0.0.0.0', PORT), RedirectHandler)
     print(f'Redirect service running on http://localhost:{PORT}')
-    print(f'  /     → prod ({URL_FILES["prod"].name})')
-    print(f'  /dev  → dev  ({URL_FILES["dev"].name})')
+    print(f'  /       → prod redirect ({URL_FILES["prod"].name})')
+    print(f'  /dev    → dev redirect  ({URL_FILES["dev"].name})')
+    print(f'  /panel  → control panel (both envs, live status)')
     server.serve_forever()

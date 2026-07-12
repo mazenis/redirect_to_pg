@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Photo Gallery — Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{font-family:system-ui,sans-serif;background:#f6f7f9;color:#1f2937;margin:0;padding:24px}
+  h1{font-size:20px;margin:0 0 4px} .sub{color:#6b7280;font-size:13px;margin-bottom:20px}
+  .grid{display:grid;gap:16px;max-width:520px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px}
+  .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .env{font-weight:700;font-size:15px} .env.dev{color:#b45309} .env.prod{color:#065f46}
+  .url{font-size:13px;word-break:break-all;margin-bottom:12px} .url a{color:#0969da}
+  .btn{display:block;text-align:center;text-decoration:none;padding:9px 10px;border-radius:8px;
+       font-size:13px;background:#0969da;color:#fff;font-weight:600}
+  .file{color:#9ca3af;font-size:11px;margin-top:8px;font-family:monospace}
+</style></head>
+<body>
+  <h1>⚡ Photo Gallery — Control</h1>
+  <div class="sub">Both environments · pick one to open</div>
+  <div class="grid">
+    <div class="card">
+      <div class="head"><span class="env prod">Production</span></div>
+      <div class="url" id="prod-url">Looking up…</div>
+      <a class="btn" id="prod-btn" href="#">Open Production →</a>
+      <div class="file">tunnel_url.txt</div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="env dev">Development</span></div>
+      <div class="url" id="dev-url">Looking up…</div>
+      <a class="btn" id="dev-btn" href="#">Open Development →</a>
+      <div class="file">tunnel_url_dev.txt</div>
+    </div>
+  </div>
+<script>
+const SRC = {
+  prod: ['../tunnel_url.txt', 'https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/tunnel_url.txt'],
+  dev:  ['../tunnel_url_dev.txt', 'https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/tunnel_url_dev.txt'],
+};
+async function resolve(env){
+  for(const s of SRC[env]){
+    try{
+      const r = await fetch(s + '?t=' + Date.now(), {cache:'no-store'});
+      if(!r.ok) continue;
+      const u = (await r.text()).trim();
+      if(u.startsWith('https://')) return u;
+    }catch(e){}
+  }
+  return null;
+}
+(async ()=>{
+  for(const env of ['prod','dev']){
+    const u = await resolve(env);
+    const urlEl = document.getElementById(env+'-url');
+    const btn = document.getElementById(env+'-btn');
+    if(u){ urlEl.innerHTML = '<a href="'+u+'">'+u+'</a>'; btn.href = u; }
+    else { urlEl.textContent = 'Not published yet'; btn.style.opacity=.5; btn.style.pointerEvents='none'; }
+  }
+})();
+</script>
+</body></html>
