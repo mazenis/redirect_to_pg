@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Photo Gallery (dev)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: sans-serif; display: flex; align-items: center; justify-content: center;
+         height: 100vh; margin: 0; color: #444; }
+  .box { text-align: center; }
+  a { color: #0969da; }
+  .tag { display:inline-block; margin-bottom:8px; padding:2px 8px; border-radius:10px;
+         background:#fde68a; color:#7c5e10; font-size:12px; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="tag">DEV</div>
+  <h2>Opening Photo Gallery (dev)…</h2>
+  <p id="status">Looking up the current dev address…</p>
+</div>
+<script>
+// Read the current DEV tunnel URL (pushed by update-tunnel-url.sh when GALLERY_ENV=dev)
+// and redirect to it. Cache-busting query defeats the Pages CDN's 10-min cache.
+const SOURCES = [
+  '../tunnel_url_dev.txt',  // same-origin on GitHub Pages (repo root)
+  'https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/tunnel_url_dev.txt',
+];
+
+async function go() {
+  for (const src of SOURCES) {
+    try {
+      const res = await fetch(src + '?t=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) continue;
+      const url = (await res.text()).trim();
+      if (url.startsWith('https://')) {
+        document.getElementById('status').innerHTML =
+          'Redirecting to <a href="' + url + '">' + url + '</a>';
+        location.replace(url);
+        return;
+      }
+    } catch (e) { /* try next source */ }
+  }
+  document.getElementById('status').textContent =
+    'Could not find the dev gallery address. Please try again in a minute.';
+}
+go();
+</script>
+</body>
+</html>
