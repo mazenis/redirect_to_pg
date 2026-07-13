@@ -1,7 +1,7 @@
 {
-  "versionCode": 30,
+  "versionCode": 31,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "App icon: gallery logo (navy/gold); matches web branding",
-  "date": "2026-07-13T21:34:47+02:00"
+  "notes": "Navy/gold theme + logo header in app (matches web); v31",
+  "date": "2026-07-13T21:53:34+02:00"
 }
