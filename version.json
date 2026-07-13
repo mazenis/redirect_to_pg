@@ -1,7 +1,7 @@
 {
-  "versionCode": 28,
+  "versionCode": 29,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Rebuilt against current production server",
-  "date": "2026-07-12T23:04:00+02:00"
+  "notes": "Navy/gold logo theme, unified pages, mobile floating nav bar",
+  "date": "2026-07-13T11:42:25+02:00"
 }
