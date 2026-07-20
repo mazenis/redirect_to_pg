@@ -14,9 +14,13 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 SCRIPT_DIR = Path(__file__).parent
 # prod → the stable public link (also used by the APK / GitHub Pages);
 # dev  → a separate URL so dev tunnels never overwrite production.
+# files → File Drop service (Dropbox-like file hosting)
 URL_FILES = {
     'prod': SCRIPT_DIR / 'tunnel_url.txt',
     'dev': SCRIPT_DIR / 'tunnel_url_dev.txt',
+    # File Drop mirrors its URL into THIS repo (like the gallery), so a git pull
+    # here keeps it current — no reaching into the separate file-drop repo.
+    'files': SCRIPT_DIR / 'tunnel_url_filedrop.txt',
 }
 PORT = int(os.environ.get('PORT', 3000))
 
@@ -121,7 +125,33 @@ def build_panel():
 
 class RedirectHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        self._handle(head=False)
+
+    def do_HEAD(self):
+        # Reachability probes (e.g. the File Drop bookmark) use HEAD — mirror GET
+        # but send no body, so we don't 501 on it.
+        self._handle(head=True)
+
+    def _handle(self, head=False):
         path = self.path.split('?', 1)[0].strip('/').lower()
+
+        # File Drop launcher page — served over http so it's same-origin with
+        # /files (no file:// unique-origin blocks; the reachability dot works).
+        if path in ('open', 'launcher', 'filedrop'):
+            launcher = SCRIPT_DIR.parent / 'file-drop' / 'file-drop.html'
+            try:
+                body = launcher.read_bytes()
+            except FileNotFoundError:
+                body = b'<h1>Launcher not found</h1>'
+                self.send_response(404)
+            else:
+                self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            if not head:
+                self.wfile.write(body)
+            return
 
         # Control panel: shows BOTH envs (does not redirect).
         if path in ('panel', 'control'):
@@ -130,26 +160,33 @@ class RedirectHandler(BaseHTTPRequestHandler):
             self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.send_header('Content-Length', str(len(body)))
             self.end_headers()
-            self.wfile.write(body)
+            if not head:
+                self.wfile.write(body)
             return
 
-        # Otherwise: redirect to the requested env's tunnel.
-        env = env_from_path(self.path)
+        # /files → File Drop service
+        if path.split('/')[0] == 'files':
+            env = 'files'
+        else:
+            env = env_from_path(self.path)
         url = get_tunnel_url(env)
 
         if not url:
+            body = (f'<html><body style="font-family:sans-serif;padding:20px">'
+                    f'<h1>Service Unavailable</h1>'
+                    f'<p>No URL published yet for <b>{env}</b> '
+                    f'({URL_FILES[env].name}). '
+                    f'<a href="/panel">Open control panel</a></p>'
+                    f'</body></html>').encode()
             self.send_response(503)
             self.send_header('Content-Type', 'text/html')
+            self.send_header('Content-Length', str(len(body)))
             self.end_headers()
-            self.wfile.write(f'<html><body style="font-family:sans-serif;padding:20px">'
-                             f'<h1>Service Unavailable</h1>'
-                             f'<p>No URL published yet for <b>{env}</b> '
-                             f'({URL_FILES[env].name}). '
-                             f'<a href="/panel">Open control panel</a></p>'
-                             f'</body></html>'.encode())
+            if not head:
+                self.wfile.write(body)
             return
 
-        print(f'[>] ({env}) Redirecting to: {url}')
+        print(f'[>] ({env}) {"HEAD" if head else "Redirecting"} to: {url}')
         self.send_response(302)
         self.send_header('Location', url)
         self.end_headers()
