@@ -1,80 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
 <title>File Drop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #1f3060;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    text-align: center;
-  }
-  .icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
-  h1 { font-size: 1.8rem; font-weight: 700; color: #1f3060; margin-bottom: 0.3rem; }
-  h1 span { color: #fbbc04; }
-  .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 1.6rem; }
-  .status { font-size: 0.9rem; color: #667; min-height: 1.4em; word-break: break-all; }
-  .status a { color: #1f3060; font-weight: 600; }
-  .spinner {
-    width: 28px; height: 28px; margin: 0 auto 1rem;
-    border: 3px solid #e0e5f0; border-top-color: #fbbc04; border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .btn {
-    display: none;
-    margin-top: 1.2rem;
-    padding: 0.8rem 1rem;
-    background: #1f3060;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .btn:hover { background: #fbbc04; color: #1f3060; }
+  body { font-family: sans-serif; display: flex; align-items: center; justify-content: center;
+         height: 100vh; margin: 0; color: #444; }
+  .box { text-align: center; }
+  a { color: #0969da; }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="icon">📁</div>
-  <h1>File <span>Drop</span></h1>
-  <p class="subtitle">Your personal file hosting</p>
-  <div class="spinner" id="spinner"></div>
-  <p class="status" id="status">Looking up the current address…</p>
-  <a class="btn" id="openBtn" href="#">Open File Drop →</a>
+<div class="box">
+  <h2>Opening File Drop…</h2>
+  <p id="status">Looking up the current address…</p>
 </div>
-
 <script>
-// Same concept as the gallery's index.html: read the current tunnel URL that
-// update-tunnel-url.sh publishes to the redirect_to_pg repo, then redirect.
-// Works from any device (GitHub raw sends CORS *), including a local file://.
-// Cache-busting query defeats the Pages / raw CDN cache.
+// Read the current tunnel URL from this repo (pushed by update-tunnel-url.sh)
+// and redirect to it. Cache-busting query defeats the Pages CDN's 10-min cache.
 const SOURCES = [
-  'tunnel_url_filedrop.txt',  // same-origin when hosted on GitHub Pages
+  'tunnel_url_filedrop.txt',  // same-origin on GitHub Pages
   'https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/tunnel_url_filedrop.txt',
 ];
-
-const status  = document.getElementById('status');
-const spinner  = document.getElementById('spinner');
-const btn      = document.getElementById('openBtn');
 
 async function go() {
   for (const src of SOURCES) {
@@ -83,17 +31,15 @@ async function go() {
       if (!res.ok) continue;
       const url = (await res.text()).trim();
       if (url.startsWith('https://')) {
-        // Offer a manual link too, in case the auto-redirect is blocked.
-        btn.href = url;
-        btn.style.display = 'block';
-        status.innerHTML = 'Redirecting to <a href="' + url + '">File Drop</a>…';
+        document.getElementById('status').innerHTML =
+          'Redirecting to <a href="' + url + '">' + url + '</a>';
         location.replace(url);
         return;
       }
     } catch (e) { /* try next source */ }
   }
-  spinner.style.display = 'none';
-  status.textContent = 'Could not find the File Drop address. Please try again in a minute.';
+  document.getElementById('status').textContent =
+    'Could not find the File Drop address. Please try again in a minute.';
 }
 go();
 </script>
