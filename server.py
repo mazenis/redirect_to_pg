@@ -34,9 +34,18 @@ def _git_pull():
     if now - last_pull >= CACHE_TTL:
         last_pull = now
         try:
+            # Non-interactive SSH with a short connect timeout so a prompt or a
+            # slow/unreachable remote can NEVER hang a /files request — on any
+            # failure we just fall back to the local file already on disk.
+            env = {
+                **os.environ,
+                'GIT_TERMINAL_PROMPT': '0',
+                'GIT_SSH_COMMAND': 'ssh -o BatchMode=yes -o ConnectTimeout=8 '
+                                   '-o StrictHostKeyChecking=accept-new',
+            }
             result = subprocess.run(
                 ['git', '-C', str(SCRIPT_DIR), 'pull', '--ff-only'],
-                capture_output=True, text=True, timeout=20)
+                capture_output=True, text=True, timeout=12, env=env)
             if result.returncode == 0:
                 if 'Already up to date' not in result.stdout:
                     print('[*] Pulled latest tunnel URLs')
