@@ -1,7 +1,7 @@
 {
-  "versionCode": 33,
+  "versionCode": 34,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Auto-fix [claude-agentic]: werkzeug.routing.exceptions.BuildError: Could not build",
-  "date": "2026-07-21T06:57:06+02:00"
+  "notes": "feat: auto-sync — detect new photos, suggest upload on allowed WiFi, configurable days-back",
+  "date": "2026-07-21T06:58:24+02:00"
 }
