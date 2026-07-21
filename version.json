@@ -1,7 +1,7 @@
 {
-  "versionCode": 36,
+  "versionCode": 38,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: black photos — always delete stale temp file, verify bytes copied before upload",
-  "date": "2026-07-21T08:23:24+02:00"
+  "notes": "fix: upload black photos — file read now happens immediately on selection",
+  "date": "2026-07-21T08:42:15+02:00"
 }
