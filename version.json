@@ -1,7 +1,7 @@
 {
-  "versionCode": 43,
+  "versionCode": 44,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: scan now shows total media count, lists available folders, checks Photos permission",
-  "date": "2026-07-21T09:26:18+02:00"
+  "notes": "Fix WiFi detection (allNetworks instead of activeNetwork); add Recently Imported sort in gallery",
+  "date": "2026-07-21T14:57:39+02:00"
 }
