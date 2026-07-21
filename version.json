@@ -1,7 +1,7 @@
 {
-  "versionCode": 49,
+  "versionCode": 50,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Bug fixes and improvements",
-  "date": "2026-07-21T20:10:40+02:00"
+  "notes": "Full-screen zoom: pinch, double-tap, pan for photos",
+  "date": "2026-07-21T20:22:10+02:00"
 }
