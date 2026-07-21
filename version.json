@@ -1,7 +1,7 @@
 {
-  "versionCode": 38,
+  "versionCode": 39,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: upload black photos — file read now happens immediately on selection",
-  "date": "2026-07-21T08:42:15+02:00"
+  "notes": "feat: Auto Sync browse folders button — pick exact bucket name from device",
+  "date": "2026-07-21T08:50:41+02:00"
 }
