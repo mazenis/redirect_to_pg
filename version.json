@@ -1,7 +1,7 @@
 {
-  "versionCode": 41,
+  "versionCode": 42,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: gallery auto-refreshes after upload, photos appear immediately",
-  "date": "2026-07-21T09:08:43+02:00"
+  "notes": "fix: delete URL-encode filename; auto sync immediate + periodic 15min scan",
+  "date": "2026-07-21T09:17:43+02:00"
 }
