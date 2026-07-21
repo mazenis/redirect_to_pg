@@ -1,7 +1,7 @@
 {
-  "versionCode": 34,
+  "versionCode": 35,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "feat: auto-sync — detect new photos, suggest upload on allowed WiFi, configurable days-back",
-  "date": "2026-07-21T06:58:24+02:00"
+  "notes": "fix: Auto Sync as dedicated screen + main menu entry",
+  "date": "2026-07-21T07:02:11+02:00"
 }
