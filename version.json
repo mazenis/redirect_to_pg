@@ -1,7 +1,7 @@
 {
-  "versionCode": 46,
+  "versionCode": 47,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Tap notification → batch upload screen; uploads all detected photos with GPS/date feedback",
-  "date": "2026-07-21T15:42:00+02:00"
+  "notes": "Fix GPS not extracted: use setRequireOriginal for both bytes and EXIF; request ACCESS_MEDIA_LOCATION at runtime",
+  "date": "2026-07-21T15:59:33+02:00"
 }
