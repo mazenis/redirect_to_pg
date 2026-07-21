@@ -1,7 +1,7 @@
 {
-  "versionCode": 47,
+  "versionCode": 48,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Fix GPS not extracted: use setRequireOriginal for both bytes and EXIF; request ACCESS_MEDIA_LOCATION at runtime",
-  "date": "2026-07-21T15:59:33+02:00"
+  "notes": "Fix: init AppConfig+NetworkHelper in AutoUploadActivity (was crashing silently when opened from notification)",
+  "date": "2026-07-21T16:09:19+02:00"
 }
