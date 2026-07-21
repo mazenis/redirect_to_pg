@@ -1,7 +1,7 @@
 {
-  "versionCode": 45,
+  "versionCode": 46,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Fix Recently Imported showing 1970 dates; untracked photos grouped as 'Before tracking started'",
-  "date": "2026-07-21T15:33:05+02:00"
+  "notes": "Tap notification → batch upload screen; uploads all detected photos with GPS/date feedback",
+  "date": "2026-07-21T15:42:00+02:00"
 }
