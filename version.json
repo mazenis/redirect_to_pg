@@ -1,7 +1,7 @@
 {
-  "versionCode": 32,
+  "versionCode": 33,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Latest updates",
-  "date": "2026-07-17T20:46:32+02:00"
+  "notes": "Auto-fix [claude-agentic]: werkzeug.routing.exceptions.BuildError: Could not build",
+  "date": "2026-07-21T06:57:06+02:00"
 }
