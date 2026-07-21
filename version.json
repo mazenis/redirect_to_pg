@@ -1,7 +1,7 @@
 {
-  "versionCode": 35,
+  "versionCode": 36,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "fix: Auto Sync as dedicated screen + main menu entry",
-  "date": "2026-07-21T07:02:11+02:00"
+  "notes": "fix: black photos — always delete stale temp file, verify bytes copied before upload",
+  "date": "2026-07-21T08:23:24+02:00"
 }
