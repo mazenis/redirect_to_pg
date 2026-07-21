@@ -1,7 +1,7 @@
 {
-  "versionCode": 50,
+  "versionCode": 51,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Full-screen zoom: pinch, double-tap, pan for photos",
-  "date": "2026-07-21T20:22:10+02:00"
+  "notes": "Add fullscreen button to photo/video viewer",
+  "date": "2026-07-21T20:55:48+02:00"
 }
