@@ -1,7 +1,7 @@
 {
-  "versionCode": 40,
+  "versionCode": 41,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "feat: Auto Sync SCAN NOW button with WiFi name + folder + count diagnostics",
-  "date": "2026-07-21T08:59:30+02:00"
+  "notes": "fix: gallery auto-refreshes after upload, photos appear immediately",
+  "date": "2026-07-21T09:08:43+02:00"
 }
