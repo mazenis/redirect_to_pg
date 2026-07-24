@@ -1,7 +1,7 @@
 {
-  "versionCode": 53,
+  "versionCode": 54,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "UploadActivity: multi-file select, batch upload with GPS",
-  "date": "2026-07-21T23:56:46+02:00"
+  "notes": "Hide system, emoji buttons, mobile nav People, dedup cache, menu reorder",
+  "date": "2026-07-24T23:19:08+02:00"
 }
