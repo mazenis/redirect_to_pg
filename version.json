@@ -1,7 +1,7 @@
 {
-  "versionCode": 54,
+  "versionCode": 55,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Hide system, emoji buttons, mobile nav People, dedup cache, menu reorder",
-  "date": "2026-07-24T23:19:08+02:00"
+  "notes": "Swipe page nav, page jump, year filter fix, memory video improvements",
+  "date": "2026-07-27T22:38:41+02:00"
 }
