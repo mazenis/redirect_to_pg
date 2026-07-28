@@ -1,7 +1,7 @@
 {
-  "versionCode": 56,
+  "versionCode": 57,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Page jump dropdown, swipe nav, fix notification count, fix sync download limit",
-  "date": "2026-07-28T06:29:30+02:00"
+  "notes": "Auto-fix [claude-agentic]: werkzeug.exceptions.MethodNotAllowed: 405 Method Not Al",
+  "date": "2026-07-28T23:18:28+02:00"
 }
