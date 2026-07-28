@@ -1,7 +1,7 @@
 {
-  "versionCode": 55,
+  "versionCode": 56,
   "versionName": "2.13",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Swipe page nav, page jump, year filter fix, memory video improvements",
-  "date": "2026-07-27T22:38:41+02:00"
+  "notes": "Page jump dropdown, swipe nav, fix notification count, fix sync download limit",
+  "date": "2026-07-28T06:29:30+02:00"
 }
