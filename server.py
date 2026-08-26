@@ -144,6 +144,29 @@ class RedirectHandler(BaseHTTPRequestHandler):
     def _handle(self, head=False):
         path = self.path.split('?', 1)[0].strip('/').lower()
 
+        # APK download
+        if path == 'apk':
+            apk_path = SCRIPT_DIR / 'app-debug.apk'
+            try:
+                body = apk_path.read_bytes()
+            except FileNotFoundError:
+                body = b'APK not found'
+                self.send_response(404)
+                self.send_header('Content-Type', 'text/plain')
+                self.send_header('Content-Length', str(len(body)))
+                self.end_headers()
+                if not head:
+                    self.wfile.write(body)
+                return
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/vnd.android.package-archive')
+            self.send_header('Content-Disposition', 'attachment; filename="photo-gallery.apk"')
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            if not head:
+                self.wfile.write(body)
+            return
+
         # File Drop launcher page — served over http so it's same-origin with
         # /files (no file:// unique-origin blocks; the reachability dot works).
         if path in ('open', 'launcher', 'filedrop'):
