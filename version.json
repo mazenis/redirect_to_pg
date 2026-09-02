@@ -1,7 +1,7 @@
 {
-  "versionCode": 57,
-  "versionName": "2.13",
+  "versionCode": 60,
+  "versionName": "2.15",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Auto-fix [claude-agentic]: werkzeug.exceptions.MethodNotAllowed: 405 Method Not Al",
-  "date": "2026-07-28T23:18:28+02:00"
+  "notes": "Security hardening: CSRF, session validation, trusted-device fix, rate limiting, password policy",
+  "date": "2026-09-02T18:12:24+02:00"
 }
