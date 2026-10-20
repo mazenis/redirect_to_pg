@@ -1,7 +1,7 @@
 {
-  "versionCode": 82,
-  "versionName": "2.36",
+  "versionCode": 83,
+  "versionName": "2.37",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Map: place list now matches what the map shows (updates on pan/zoom)",
-  "date": "2026-10-20T17:07:15+02:00"
+  "notes": "Back (رجوع) button on every screen",
+  "date": "2026-10-20T17:17:34+02:00"
 }
