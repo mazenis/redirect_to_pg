@@ -1,7 +1,7 @@
 {
-  "versionCode": 80,
-  "versionName": "2.34",
+  "versionCode": 81,
+  "versionName": "2.35",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Album access by groups (Family, Friends, custom) + exclude list",
-  "date": "2026-10-20T15:00:11+02:00"
+  "notes": "Follows your website language, 🌐 quick switch, names never translated",
+  "date": "2026-10-20T15:09:42+02:00"
 }
