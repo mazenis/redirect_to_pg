@@ -1,7 +1,7 @@
 {
-  "versionCode": 81,
-  "versionName": "2.35",
+  "versionCode": 82,
+  "versionName": "2.36",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Follows your website language, 🌐 quick switch, names never translated",
-  "date": "2026-10-20T15:09:42+02:00"
+  "notes": "Map: place list now matches what the map shows (updates on pan/zoom)",
+  "date": "2026-10-20T17:07:15+02:00"
 }
