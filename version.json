@@ -1,7 +1,7 @@
 {
-  "versionCode": 83,
-  "versionName": "2.37",
+  "versionCode": 84,
+  "versionName": "2.38",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Back (رجوع) button on every screen",
-  "date": "2026-10-20T17:17:34+02:00"
+  "notes": "One Back button per screen; home menu fully in Arabic",
+  "date": "2026-10-20T19:30:30+02:00"
 }
