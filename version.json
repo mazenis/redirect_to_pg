@@ -1,7 +1,7 @@
 {
-  "versionCode": 61,
-  "versionName": "2.16",
+  "versionCode": 78,
+  "versionName": "2.32",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Switch server URL to permanent Tailscale Funnel hostname (replaces rotating Cloudflare quick tunnel)",
-  "date": "2026-09-11T21:02:10+02:00"
+  "notes": "Arabic/RTL localization throughout the app + gallery page gestures (pull to go back/next)",
+  "date": "2026-10-20T14:42:17+02:00"
 }
