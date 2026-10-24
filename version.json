@@ -1,7 +1,7 @@
 {
-  "versionCode": 88,
-  "versionName": "2.42",
+  "versionCode": 89,
+  "versionName": "2.43",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Android 2.42: share a photo without its location",
-  "date": "2026-10-24T08:09:55+02:00"
+  "notes": "Android 2.43: admin-only menu with Recent Uploads and Known IPs; security hardening",
+  "date": "2026-10-24T09:52:17+02:00"
 }
