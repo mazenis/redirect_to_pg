@@ -1,7 +1,7 @@
 {
-  "versionCode": 84,
-  "versionName": "2.38",
+  "versionCode": 88,
+  "versionName": "2.42",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "One Back button per screen; home menu fully in Arabic",
-  "date": "2026-10-20T19:30:30+02:00"
+  "notes": "Android 2.42: share a photo without its location",
+  "date": "2026-10-24T08:09:55+02:00"
 }
