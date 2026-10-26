@@ -1,7 +1,7 @@
 {
-  "versionCode": 91,
+  "versionCode": 92,
   "versionName": "2.44",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Set GPS now has map + city/country search with your own places suggested (same as the website)",
-  "date": "2026-10-25T08:00:15+01:00"
+  "notes": "Download/Share only for photos you uploaded (admin: all)",
+  "date": "2026-10-26T16:38:23+01:00"
 }
