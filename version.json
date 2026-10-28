@@ -1,7 +1,7 @@
 {
-  "versionCode": 92,
+  "versionCode": 93,
   "versionName": "2.44",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Download/Share only for photos you uploaded (admin: all)",
-  "date": "2026-10-26T16:38:23+01:00"
+  "notes": "Uploads: 'already in gallery' is now decided by photo content (hash), not file name",
+  "date": "2026-10-28T12:07:08+01:00"
 }
