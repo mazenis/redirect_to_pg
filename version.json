@@ -1,7 +1,7 @@
 {
-  "versionCode": 95,
+  "versionCode": 96,
   "versionName": "2.44",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Warns when uploading small photos without location (probably not originals)",
-  "date": "2026-10-29T11:15:51+01:00"
+  "notes": "Before uploading, offers to skip small photos without location",
+  "date": "2026-10-29T11:24:47+01:00"
 }
