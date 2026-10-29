@@ -1,7 +1,7 @@
 {
-  "versionCode": 97,
+  "versionCode": 98,
   "versionName": "2.44",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Photos open as a small fast preview; tap Full size for the original",
-  "date": "2026-10-29T11:35:59+01:00"
+  "notes": "Faster photo opening on phones; server fixes for deleted photos",
+  "date": "2026-10-29T11:56:27+01:00"
 }
