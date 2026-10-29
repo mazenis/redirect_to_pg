@@ -1,7 +1,7 @@
 {
-  "versionCode": 98,
-  "versionName": "2.44",
+  "versionCode": 99,
+  "versionName": "2.45",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Faster photo opening on phones; server fixes for deleted photos",
-  "date": "2026-10-29T11:56:27+01:00"
+  "notes": "Videos play again (new video player)",
+  "date": "2026-10-29T14:52:01+01:00"
 }
