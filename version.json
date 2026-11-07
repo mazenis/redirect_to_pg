@@ -1,7 +1,7 @@
 {
-  "versionCode": 100,
-  "versionName": "2.46",
+  "versionCode": 102,
+  "versionName": "2.47",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Choose video quality: Full / 720p / 480p / 360p (smaller loads faster)",
-  "date": "2026-10-29T19:45:07+01:00"
+  "notes": "Select all per day; Verify faces with move/unassign",
+  "date": "2026-11-07T22:58:37+01:00"
 }
