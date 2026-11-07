@@ -1,7 +1,7 @@
 {
-  "versionCode": 102,
+  "versionCode": 103,
   "versionName": "2.47",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Select all per day; Verify faces with move/unassign",
-  "date": "2026-11-07T22:58:37+01:00"
+  "notes": "Move photos from one person to another",
+  "date": "2026-11-07T23:14:01+01:00"
 }
