@@ -1,7 +1,7 @@
 {
-  "versionCode": 103,
+  "versionCode": 104,
   "versionName": "2.47",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Move photos from one person to another",
-  "date": "2026-11-07T23:14:01+01:00"
+  "notes": "Auto upload fix: Camera folder detected, new photos upload again",
+  "date": "2026-11-12T08:25:54+01:00"
 }
