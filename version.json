@@ -1,7 +1,7 @@
 {
-  "versionCode": 107,
-  "versionName": "2.48",
+  "versionCode": 108,
+  "versionName": "2.49",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Pages button, version shown as 2.48 (107)",
-  "date": "2026-11-14T19:25:42+01:00"
+  "notes": "Create users without a face",
+  "date": "2026-11-14T19:35:01+01:00"
 }
