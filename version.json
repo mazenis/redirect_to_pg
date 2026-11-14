@@ -1,7 +1,7 @@
 {
-  "versionCode": 109,
-  "versionName": "2.50",
+  "versionCode": 110,
+  "versionName": "2.51",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Album menu shows only allowed actions",
-  "date": "2026-11-14T19:44:55+01:00"
+  "notes": "Add to album lists only your own albums",
+  "date": "2026-11-14T19:52:31+01:00"
 }
