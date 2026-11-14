@@ -1,7 +1,7 @@
 {
-  "versionCode": 105,
+  "versionCode": 106,
   "versionName": "2.47",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Year filter in the gallery",
-  "date": "2026-11-13T14:20:39+01:00"
+  "notes": "Pages: album pages with likes, comments and sharing",
+  "date": "2026-11-14T19:23:47+01:00"
 }
