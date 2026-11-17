@@ -1,7 +1,7 @@
 {
-  "versionCode": 112,
-  "versionName": "2.53",
+  "versionCode": 113,
+  "versionName": "2.54",
   "url": "https://raw.githubusercontent.com/mazenis/redirect_to_pg/main/app-debug.apk",
-  "notes": "Arabic: almost every screen now translated",
-  "date": "2026-11-17T14:09:40+01:00"
+  "notes": "Map photos open full viewer with full screen",
+  "date": "2026-11-17T15:14:05+01:00"
 }
