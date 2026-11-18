@@ -228,7 +228,7 @@ class RedirectHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    server = HTTPServer(('0.0.0.0', PORT), RedirectHandler)
+    server = HTTPServer((os.environ.get('BIND', '127.0.0.1'), PORT), RedirectHandler)
     print(f'Redirect service running on http://localhost:{PORT}')
     print(f'  /       → prod redirect ({URL_FILES["prod"].name})')
     print(f'  /dev    → dev redirect  ({URL_FILES["dev"].name})')
